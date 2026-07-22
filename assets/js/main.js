@@ -48,13 +48,17 @@
 
   /**
    * Toggle mobile nav dropdowns
+   * Click on the entire dropdown link (text + icon) to toggle submenu
    */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+  document.querySelectorAll('.navmenu .dropdown > a').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+      // Only toggle if this dropdown has a submenu <ul>
+      if (this.nextElementSibling && this.nextElementSibling.tagName === 'UL') {
+        e.preventDefault();
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('dropdown-active');
+        e.stopImmediatePropagation();
+      }
     });
   });
 

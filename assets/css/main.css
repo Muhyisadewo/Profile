@@ -1008,11 +1008,11 @@ section,
 }
 
 .portfolio .portfolio-item .portfolio-info {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   left: 30px;
   right: 30px;
-  bottom: 0;
+  bottom: 20px;
   z-index: 3;
   transition: all ease-in-out 0.3s;
   background: color-mix(in srgb, var(--background-color), transparent 10%);
@@ -1056,6 +1056,7 @@ section,
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
   bottom: 20px;
+  background: color-mix(in srgb, var(--background-color), transparent 0%);
 }
 
 /*--------------------------------------------------------------
